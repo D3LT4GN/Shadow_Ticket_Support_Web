@@ -1,0 +1,56 @@
+/* assets/css/home.css */
+:root {
+    /* --- 1. Paleta Branding --- */
+    /* Color Principal 'Shadow' (Fondo Nav/Footer) [cite: 4, 5] */
+    --color-shadow: #08192f;
+    /* Color de Acento 'Acción' (Botones) [cite: 11, 13] */
+    --color-accent: #00A6FB;
+    /* Fondos Generales [cite: 18, 19, 20] */
+    --color-bg-body: #E0E1DD;
+    --color-bg-card: #FDFDFF;
+    
+    /* Textos */
+    --color-text-main: #0f131a;
+    --color-text-light: #ffffff;
+
+    /* --- 2. Paleta Funcional (Estados) [cite: 28, 29, 30, 31] --- */
+    --status-open: #e74c3c;       /* Rojo */
+    --status-progress: #f1c40f;   /* Amarillo */
+    --status-solved: #2ecc71;     /* Verde */
+
+    /* --- 3. T-shirt Sizing [cite: 32, 34, 35, 36] --- */
+    --size-s: #ffccd5;
+    --size-m: #a2d2ff;
+    --size-l: #cdb4db;
+    
+    /* --- Tipografía [cite: 38] --- */
+    --font-main: 'Montserrat', sans-serif;
+    --font-display: 'Della Respira', serif;
+}
+.hero {
+    text-align: center;
+    padding: 60px 0;
+    background-color: var(--color-bg-card);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.hero h2 {
+    font-family: var(--font-display);
+    color: var(--color-shadow);
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: #555;
+}
+
+.demo-badges {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 2rem;
+}

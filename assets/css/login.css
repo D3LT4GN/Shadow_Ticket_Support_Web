@@ -1,0 +1,118 @@
+/* assets/css/login.css */
+
+:root {
+    /* --- 1. Paleta Branding --- */
+    /* Color Principal 'Shadow' (Fondo Nav/Footer) [cite: 4, 5] */
+    --color-shadow: #08192f;
+    /* Color de Acento 'Acción' (Botones) [cite: 11, 13] */
+    --color-accent: #00A6FB;
+    /* Fondos Generales [cite: 18, 19, 20] */
+    --color-bg-body: #D9D9D9;
+    --color-bg-card: #FDFDFF;
+    
+    /* Textos */
+    --color-text-main: #0f131a;
+    --color-text-light: #ffffff;
+
+    /* --- 2. Paleta Funcional (Estados) [cite: 28, 29, 30, 31] --- */
+    --status-open: #e74c3c;       /* Rojo */
+    --status-progress: #f1c40f;   /* Amarillo */
+    --status-solved: #2ecc71;     /* Verde */
+
+    /* --- 3. T-shirt Sizing [cite: 32, 34, 35, 36] --- */
+    --size-s: #ffccd5;
+    --size-m: #a2d2ff;
+    --size-l: #cdb4db;
+    
+    /* --- Tipografía [cite: 38] --- */
+    --font-main: 'Montserrat', sans-serif;
+    --font-display: 'Della Respira', serif;
+}
+
+
+
+/* Centramos el contenido vertical y horizontalmente */
+.login-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 60vh; /* Ocupa buena parte de la pantalla */
+    padding: 20px;
+}
+
+.login-card {
+    background-color: var(--color-bg-card);
+    width: 100%;
+    max-width: 400px;
+    padding: 2.5rem;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(8, 25, 47, 0.1); /* Sombra sutil color Shadow */
+    border-top: 5px solid var(--color-accent); /* Detalle de marca */
+    text-align: center;
+}
+
+.login-header h2 {
+    font-family: var(--font-display);
+    color: var(--color-shadow);
+    margin-bottom: 0.5rem;
+    font-size: 1.8rem;
+}
+
+.login-header p {
+    color: #666;
+    margin-bottom: 2rem;
+    font-size: 0.9rem;
+}
+
+/* Estilos de los Inputs */
+.form-group {
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--color-shadow);
+    font-size: 0.9rem;
+}
+
+.form-input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: var(--font-main);
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--color-accent);
+    background-color: #fdfdff;
+}
+
+/* Botón ancho completo */
+.btn-block {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    margin-top: 1rem;
+    cursor: pointer;
+    border: none;
+}
+
+/* Mensajes de Error (Sin popups) */
+.alert-error {
+    background-color: rgba(231, 76, 60, 0.1); /* Rojo muy claro */
+    border-left: 4px solid var(--status-open); /* Rojo fuerte */
+    color: #c0392b;
+    padding: 10px;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+    border-radius: 4px;
+    text-align: left;
+}

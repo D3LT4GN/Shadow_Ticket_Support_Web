@@ -1,0 +1,112 @@
+/* assets/css/global.css */
+
+/* 1. Variables (Repetidas según tu requerimiento) */
+:root {
+    --color-shadow: #08192f;
+    --color-accent: #00A6FB;
+    --color-bg-body: #E0E1DD;
+    --color-bg-card: #FDFDFF;
+    --color-text-main: #0f131a;
+    --color-text-light: #ffffff;
+    --status-open: #e74c3c;
+    --status-progress: #f1c40f;
+    --status-solved: #2ecc71;
+    --size-s: #ffccd5;
+    --size-m: #a2d2ff;
+    --size-l: #cdb4db;
+    --font-main: 'Montserrat', sans-serif;
+    --font-display: 'Della Respira', serif;
+}
+
+/* --- TOAST NOTIFICATION (Alerta Flotante) --- */
+.toast-notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: white;
+    color: var(--color-text-main);
+    padding: 15px 25px;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    border-left: 6px solid var(--color-accent); /* Borde azul */
+    z-index: 9999;
+    
+    /* Animación de entrada */
+    transform: translateX(150%); /* Empieza fuera de la pantalla */
+    transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55); /* Efecto rebote */
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 300px;
+}
+
+.toast-notification.show {
+    transform: translateX(0); /* Entra a la pantalla */
+}
+
+.toast-icon {
+    font-size: 1.5rem;
+}
+
+.toast-body strong {
+    display: block;
+    font-size: 1.05rem;
+    color: var(--color-shadow);
+}
+
+.toast-body span {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* 2. RESET (Elimina el margen blanco maldito) */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* 3. STICKY FOOTER (Obliga al footer a bajar) */
+html, body {
+    height: 100%; /* Ocupar toda la altura de la ventana */
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: #FDFDFF;
+    color: var(--color-text-main);
+    line-height: 1.6;
+    
+    /* Magia Flexbox para la estructura vertical */
+    display: flex;
+    flex-direction: column;
+}
+
+/* 4. Clases Utilitarias Globales */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.main-container {
+    flex: 1; /* Esto empuja el footer hacia abajo si falta contenido */
+    padding: 2rem 0;
+    width: 100%; /* Asegura que ocupe el ancho disponible */
+}
+
+/* Badges (Tallas) - Deben estar aquí para usarse en toda la app */
+.badge-s { background-color: var(--size-s); padding: 4px 8px; border-radius: 4px; font-weight: bold; font-size: 0.85rem; }
+.badge-m { background-color: var(--size-m); padding: 4px 8px; border-radius: 4px; font-weight: bold; font-size: 0.85rem; }
+.badge-l { background-color: var(--size-l); padding: 4px 8px; border-radius: 4px; font-weight: bold; font-size: 0.85rem; }
+
+.btn-accent {
+    background-color: var(--color-accent);
+    color: var(--color-text-light) !important;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+.btn-accent:hover { background-color: #008ecf; }

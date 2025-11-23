@@ -1,0 +1,153 @@
+/* assets/css/ticket.css */
+
+/* assets/css/variables.css */
+:root {
+    /* --- 1. Paleta Branding --- */
+    /* Color Principal 'Shadow' (Fondo Nav/Footer) [cite: 4, 5] */
+    --color-shadow: #08192f;
+    /* Color de Acento 'Acción' (Botones) [cite: 11, 13] */
+    --color-accent: #00A6FB;
+    /* Fondos Generales [cite: 18, 19, 20] */
+    --color-bg-body: #E0E1DD;
+    --color-bg-card: #FDFDFF;
+    
+    /* Textos */
+    --color-text-main: #0f131a;
+    --color-text-light: #ffffff;
+
+    /* --- 2. Paleta Funcional (Estados) [cite: 28, 29, 30, 31] --- */
+    --status-open: #e74c3c;       /* Rojo */
+    --status-progress: #f1c40f;   /* Amarillo */
+    --status-solved: #2ecc71;     /* Verde */
+
+    /* --- 3. T-shirt Sizing [cite: 32, 34, 35, 36] --- */
+    --size-s: #ffccd5;
+    --size-m: #a2d2ff;
+    --size-l: #cdb4db;
+    
+    /* --- Tipografía [cite: 38] --- */
+    --font-main: 'Montserrat', sans-serif;
+    --font-display: 'Della Respira', serif;
+}
+
+/* Contenedor principal del formulario */
+.ticket-wrapper {
+    padding: 40px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.ticket-card {
+    background-color: var(--color-bg-card);
+    width: 100%;
+    max-width: 700px;
+    padding: 2.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(8, 25, 47, 0.05);
+    border-top: 5px solid var(--color-accent);
+}
+
+.ticket-header {
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 1rem;
+}
+
+.ticket-header h2 {
+    font-family: var(--font-display);
+    color: var(--color-shadow);
+}
+
+/* --- Estilos del Formulario --- */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--color-shadow);
+}
+
+.form-input, .form-select, .form-textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: var(--font-main);
+    font-size: 1rem;
+}
+
+.form-textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* --- MAGIA: T-shirt Sizing Visual (Sin JS) --- */
+.sizing-options {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+/* Ocultamos el input radio real */
+.sizing-options input[type="radio"] {
+    display: none;
+}
+
+/* Estilo base de las tarjetas de tallas */
+.size-card {
+    flex: 1; /* Que ocupen el mismo ancho */
+    padding: 15px;
+    border: 2px solid #eee;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.3s ease;
+    opacity: 0.6; /* Un poco transparentes cuando no están seleccionados */
+}
+
+.size-card strong {
+    display: block;
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+}
+
+.size-card span {
+    font-size: 0.85rem;
+    color: #666;
+}
+
+/* --- Colores al seleccionar --- */
+
+/* Si el radio 'S' está checkeado, estiliza su label hermano */
+#talla_s:checked + .size-card {
+    background-color: var(--size-s); /* Rosa [cite: 34] */
+    border-color: #ff9eb5;
+    opacity: 1;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+#talla_m:checked + .size-card {
+    background-color: var(--size-m); /* Azul [cite: 35] */
+    border-color: #74b9ff;
+    opacity: 1;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+#talla_l:checked + .size-card {
+    background-color: var(--size-l); /* Morado [cite: 36] */
+    border-color: #be9ddf;
+    opacity: 1;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Botón de envío */
+.form-actions {
+    text-align: right;
+    margin-top: 20px;
+}

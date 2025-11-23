@@ -1,0 +1,142 @@
+/* assets/css/header.css */
+
+:root {
+    /* --- 1. Paleta Branding --- */
+    /* Color Principal 'Shadow' (Fondo Nav/Footer) [cite: 4, 5] */
+    --color-shadow: #08192f;
+    /* Color de Acento 'Acción' (Botones) [cite: 11, 13] */
+    --color-accent: #00A6FB;
+    /* Fondos Generales [cite: 18, 19, 20] */
+    --color-bg-body: #E0E1DD;
+    --color-bg-card: #FDFDFF;
+    
+    /* Textos */
+    --color-text-main: #0f131a;
+    --color-text-light: #ffffff;
+
+    /* --- 2. Paleta Funcional (Estados) [cite: 28, 29, 30, 31] --- */
+    --status-open: #e74c3c;       /* Rojo */
+    --status-progress: #f1c40f;   /* Amarillo */
+    --status-solved: #2ecc71;     /* Verde */
+
+    /* --- 3. T-shirt Sizing [cite: 32, 34, 35, 36] --- */
+    --size-s: #ffccd5;
+    --size-m: #a2d2ff;
+    --size-l: #cdb4db;
+    
+    /* --- Tipografía [cite: 38] --- */
+    --font-main: 'Montserrat', sans-serif;
+    --font-display: 'Della Respira', serif;
+}
+
+/* --- ESTA ES LA REGLA QUE FALTABA PARA EL FONDO AZUL --- */
+.main-header {
+    background-color: var(--color-shadow);
+    color: var(--color-text-light);
+    padding: 0; 
+    height: 80px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    position: relative;
+    z-index: 1000;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+/* --- Logo --- */
+.logo a {
+    color: var(--color-text-light);
+    text-decoration: none;
+    font-family: var(--font-display); 
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+}
+
+/* --- Navegación --- */
+.main-nav {
+    height: 100%;
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    gap: 0; 
+    align-items: center;
+    height: 100%;
+    margin: 0;
+}
+
+.nav-list > li {
+    position: relative; 
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.nav-list > li > a {
+    color: var(--color-text-light);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0 20px; 
+    height: 100%;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.nav-list > li > a:hover {
+    background-color: rgba(255, 255, 255, 0.1); 
+    color: var(--color-accent); 
+}
+
+/* --- Drop-down --- */
+.dropdown-menu {
+    display: none; 
+    position: absolute;
+    top: 100%; 
+    left: 0;
+    background-color: var(--color-shadow); 
+    min-width: 200px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    list-style: none;
+    padding: 10px 0;
+    border-top: 3px solid var(--color-accent); 
+}
+
+.dropdown-item:hover .dropdown-menu {
+    display: block; 
+}
+
+.dropdown-menu li a {
+    display: block;
+    padding: 12px 20px;
+    color: var(--color-text-light);
+    text-decoration: none;
+    font-size: 0.9rem;
+    border-left: 3px solid transparent; 
+    transition: all 0.2s;
+}
+
+.dropdown-menu li a:hover {
+    background-color: rgba(0, 166, 251, 0.1); 
+    border-left: 3px solid var(--color-accent); 
+    color: var(--color-accent);
+}
+
+/* --- Botón Usuario --- */
+.nav-list .btn-accent {
+    background-color: var(--color-accent);
+    height: auto; 
+    padding: 8px 20px;
+    border-radius: 5px;
+    margin-left: 15px;
+}
+
+.nav-list .btn-accent:hover {
+    background-color: #008ecf;
+    color: white;
+}

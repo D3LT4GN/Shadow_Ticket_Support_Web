@@ -1,0 +1,199 @@
+/* assets/css/galeria.css */
+
+
+:root {
+    --color-shadow: #08192f;
+    --color-accent: #00A6FB;
+    --color-bg-body: #E0E1DD;
+    --color-bg-card: #FDFDFF;
+    --color-text-main: #0f131a;
+    --color-text-light: #ffffff;
+    --status-open: #e74c3c;
+    --status-progress: #f1c40f;
+    --status-solved: #2ecc71;
+    --size-s: #ffccd5;
+    --size-m: #a2d2ff;
+    --size-l: #cdb4db;
+    --font-main: 'Montserrat', sans-serif;
+    --font-display: 'Della Respira', serif;
+}
+/* --- Barra de Filtros (Navbar style) --- */
+.filter-bar {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    margin-bottom: 30px;
+    border-left: 5px solid var(--color-shadow);/* [cite: 4] */
+}
+
+.filter-form {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap; /* Se adapta a móviles */
+    align-items: end;
+}
+
+.filter-group {
+    flex: 1;
+    min-width: 150px;
+}
+
+.filter-label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: var(--color-shadow);
+}
+
+/* Reutilizamos estilos de inputs globales pero ajustados */
+.filter-input, .filter-select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-family: var(--font-main);/* [cite: 38] */
+}
+
+.btn-filter {
+    background-color: var(--color-shadow);/* [cite: 4] */
+    color: white;
+    border: none;
+    padding: 11px 25px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.btn-filter:hover {
+    background-color: var(--color-accent); /* [cite: 11] */
+}
+
+/* --- Grid de Tarjetas --- */
+.tickets-grid {
+    display: grid;
+    /* Crea columnas automáticamente. Mínimo 300px, máximo lo que quepa */
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); 
+    gap: 25px;
+}
+
+/* --- Diseño de la Tarjeta --- */
+.ticket-card {
+    background-color: var(--color-bg-card);/* [cite: 20] */
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    padding: 20px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #eee;
+}
+
+.ticket-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+/* --- Variaciones por Prioridad (Colores) --- */
+[cite_start]/* Prioridad Alta (3) - Rojo [cite: 31] */
+.priority-3 {
+    border-top: 6px solid var(--status-open); 
+    background: linear-gradient(to bottom, rgba(231, 76, 60, 0.03), white 30%);
+}
+.priority-3 .priority-badge { color: var(--status-open); background: rgba(231, 76, 60, 0.1); }
+
+[cite_start]/* Prioridad Media (2) - Amarillo/Naranja [cite: 30] */
+.priority-2 {
+    border-top: 6px solid var(--status-progress);
+    background: linear-gradient(to bottom, rgba(241, 196, 15, 0.05), white 30%);
+}
+.priority-2 .priority-badge { color: #d35400; background: rgba(241, 196, 15, 0.2); }
+
+/* Prioridad Baja (1) - Azul Corporativo o Verde */
+.priority-1 {
+    border-top: 6px solid var(--color-accent);/* [cite: 11] */
+    background: linear-gradient(to bottom, rgba(0, 166, 251, 0.03), white 30%);
+}
+.priority-1 .priority-badge { color: var(--color-accent); background: rgba(0, 166, 251, 0.1); }
+
+
+/* --- Contenido de la Tarjeta --- */
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.ticket-id {
+    font-family: var(--font-display); /* [cite: 38] */
+    color: #999;
+    font-size: 0.9rem;
+}
+
+.priority-badge {
+    font-size: 0.75rem;
+    font-weight: bold;
+    padding: 4px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
+
+.card-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--color-shadow);
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+.card-meta {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+    font-size: 0.85rem;
+    color: #666;
+}
+
+.meta-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.talla-badge {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: 0.8rem;
+    color: #333;
+}
+
+[cite_start]/* Colores Tallas [cite: 34, 35, 36] */
+.talla-S { background-color: var(--size-s); }
+.talla-M { background-color: var(--size-m); }
+.talla-L { background-color: var(--size-l); }
+
+.card-footer {
+    margin-top: auto; /* Empuja el botón al fondo */
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+    text-align: right;
+}
+
+.btn-card {
+    text-decoration: none;
+    color: var(--color-shadow);
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: color 0.2s;
+}
+.btn-card:hover { color: var(--color-accent); }

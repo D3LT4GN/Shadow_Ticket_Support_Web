@@ -1,0 +1,249 @@
+/* assets/css/detalle.css */
+
+/* assets/css/variables.css */
+:root {
+    /* --- 1. Paleta Branding --- */
+    /* Color Principal 'Shadow' (Fondo Nav/Footer) [cite: 4, 5] */
+    --color-shadow: #08192f;
+    /* Color de Acento 'Acción' (Botones) [cite: 11, 13] */
+    --color-accent: #00A6FB;
+    /* Fondos Generales [cite: 18, 19, 20] */
+    --color-bg-body: #E0E1DD;
+    --color-bg-card: #FDFDFF;
+    
+    /* Textos */
+    --color-text-main: #0f131a;
+    --color-text-light: #ffffff;
+
+    /* --- 2. Paleta Funcional (Estados) [cite: 28, 29, 30, 31] --- */
+    --status-open: #e74c3c;       /* Rojo */
+    --status-progress: #f1c40f;   /* Amarillo */
+    --status-solved: #2ecc71;     /* Verde */
+
+    /* --- 3. T-shirt Sizing [cite: 32, 34, 35, 36] --- */
+    --size-s: #ffccd5;
+    --size-m: #a2d2ff;
+    --size-l: #cdb4db;
+    
+    /* --- Tipografía [cite: 38] --- */
+    --font-main: 'Montserrat', sans-serif;
+    --font-display: 'Della Respira', serif;
+}
+
+/* --- LAYOUT PRINCIPAL --- */
+.detail-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 350px; /* Contenido izq, Chat der */
+    gap: 30px;
+    padding: 40px 0;
+    height: calc(100vh - 80px); /* Ocupa toda la pantalla menos header */
+}
+
+/* Móvil: Una sola columna */
+@media (max-width: 900px) {
+    .detail-wrapper { grid-template-columns: 1fr; height: auto; }
+}
+
+/* --- COLUMNA IZQUIERDA: INFO DEL TICKET --- */
+.info-panel {
+    background: var(--color-bg-card);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    border-top: 5px solid var(--color-shadow);
+}
+
+.ticket-meta-header {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.ticket-meta-header h2 {
+    font-family: var(--font-display);
+    color: var(--color-shadow);
+    font-size: 1.8rem;
+}
+
+/* TIMELINE VISUAL (Pizza Tracker) */
+.timeline {
+    display: flex;
+    justify-content: space-between;
+    margin: 30px 0;
+    position: relative;
+}
+
+/* Línea gris de fondo */
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 14px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: #eee;
+    z-index: 0;
+}
+
+.step {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    background: var(--color-bg-card);
+    padding: 0 10px;
+}
+
+.step-circle {
+    width: 30px;
+    height: 30px;
+    background: #ddd;
+    border-radius: 50%;
+    margin: 0 auto 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: white;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Rebote */
+}
+
+.step-label { font-size: 0.8rem; color: #999; font-weight: bold; }
+
+/* Estados Activos */
+.step.active .step-circle {
+    transform: scale(1.2); /* Animación de crecimiento */
+    background: var(--color-accent);
+    box-shadow: 0 0 0 4px rgba(0, 166, 251, 0.2);
+}
+.step.active .step-label { color: var(--color-shadow); }
+.step.completed .step-circle { background: var(--status-solved); }
+
+/* --- COLUMNA DERECHA: CHAT (WhatsApp Style) --- */
+.chat-panel {
+    background: #e5ddd5; /* Color clásico de fondo de chat */
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    border: 1px solid #ddd;
+    height: 100%;
+    max-height: 600px;
+}
+
+.chat-header {
+    background: var(--color-shadow);
+    color: white;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.avatar-support {
+    width: 40px;
+    height: 40px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-shadow);
+    font-weight: bold;
+}
+
+/* Área de mensajes */
+.chat-messages {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background-image: radial-gradient(#ddd 1px, transparent 1px); /* Patrón sutil */
+    background-size: 20px 20px;
+}
+
+/* BURBUJAS DE CHAT */
+.message {
+    max-width: 80%;
+    padding: 10px 15px;
+    border-radius: 15px;
+    position: relative;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    
+    /* ANIMACIÓN DE ENTRADA */
+    animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+/* Mensaje del SOPORTE (Izquierda) */
+.message.support {
+    align-self: flex-start;
+    background: white;
+    color: #333;
+    border-bottom-left-radius: 2px; /* Pico de la burbuja */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+/* Mensaje MÍO/CLIENTE (Derecha) */
+.message.me {
+    align-self: flex-end;
+    background: var(--color-accent); /* Azul Shadow */
+    color: white;
+    border-bottom-right-radius: 2px; /* Pico de la burbuja */
+    box-shadow: 0 2px 5px rgba(0, 166, 251, 0.3);
+}
+
+.msg-time {
+    display: block;
+    font-size: 0.7rem;
+    margin-top: 5px;
+    text-align: right;
+    opacity: 0.7;
+}
+
+/* Input Area */
+.chat-input-area {
+    background: #f0f0f0;
+    padding: 10px;
+    display: flex;
+    gap: 10px;
+    border-top: 1px solid #ddd;
+}
+
+.chat-input {
+    flex: 1;
+    padding: 12px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    outline: none;
+    font-family: var(--font-main);
+    transition: border-color 0.3s;
+}
+.chat-input:focus { border-color: var(--color-accent); }
+
+.btn-send {
+    background: var(--color-shadow);
+    color: white;
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s;
+}
+.btn-send:hover { transform: scale(1.1); background: var(--color-accent); }
+
+/* KEYFRAMES PARA ANIMACIONES */
+@keyframes popIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
