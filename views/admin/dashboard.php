@@ -27,6 +27,10 @@ require_once '../../includes/header.php';
 
         <div style="margin-top: 40px; display: flex; justify-content: center; gap: 20px;">
             <a href="/views/admin/lista_tickets.php" class="btn-accent">Gestionar Tickets</a>
+            <!-- NUEVO BOTÓN -->
+            <a href="/views/admin/clientes.php" class="btn-accent" style="background-color: var(--status-progress); color: #333;">
+                👥 Administrar Clientes
+            </a>
             <a href="/controllers/auth_logout.php" class="btn-secondary" style="border: 2px solid var(--status-open); color: var(--status-open); padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold;">Cerrar Sesión</a>
         </div>
 

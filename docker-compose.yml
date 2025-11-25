@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  # --- SERVICIO 1: TU PÁGINA WEB (PHP) ---
+  web:
+    build: .
+    container_name: shadow_sts_web
+    ports:
+      - "8080:80"  # Accederás en tu navegador como localhost:8080
+    volumes:
+      - .:/var/www/html # Sincroniza tu carpeta actual con el contenedor (cambios en vivo)
+    depends_on:
+      - db
+    networks:
+      - shadow_net
+
+  # --- SERVICIO 2: BASE DE DATOS (PostgreSQL) ---
+  db:
+    image: postgres:15
+    container_name: shadow_sts_db
+    environment:
+      POSTGRES_DB: db_sts_proyect
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: "123456789" # La misma contraseña que usas en tu código
+    volumes:
+      - db_data:/var/lib/postgresql/data
+      # Esta línea carga tu script SQL automáticamente al iniciar
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "5433:5432" # Puerto externo 5433 para no chocar si tienes Postgres local
+    networks:
+      - shadow_net
+
+# Definición de volúmenes y redes
+volumes:
+  db_data:
+
+networks:
+  shadow_net:
+    driver: bridge

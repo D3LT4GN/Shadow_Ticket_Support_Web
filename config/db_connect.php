@@ -1,6 +1,6 @@
 <?php
 /*Código de conección para la base  de datos*/
-$host='localhost';
+$host='db';
 $dbname='db_sts_proyect';
 $port='5432';
 $user='postgres';
@@ -17,6 +17,6 @@ try {
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
     // Si falla la conexión, detenemos todo
-    die("Error en la conexión a base de datos: " . $e->getMessage());
+    die("Error en la conexión en Docker: " . $e->getMessage());
 }
 ?>
