@@ -3,7 +3,7 @@
 
 // 1. Intentamos leer variables de entorno (Configuración de Render)
 // 2. Si no existen, usamos los valores fijos de Docker Local ('db', '123456789')
-$host     = getenv('DB_HOST') ? getenv('DB_HOST') : 'db';
+$host     = getenv('DB_HOST') ? getenv('DB_HOST') : 'localhost';
 $dbname   = getenv('DB_NAME') ? getenv('DB_NAME') : 'db_sts_proyect';
 $port     = getenv('DB_PORT') ? getenv('DB_PORT') : '5432';
 $user     = getenv('DB_USER') ? getenv('DB_USER') : 'postgres';
